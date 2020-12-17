@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts\Utilities;
+namespace Zitkala\LogViewer\Contracts\Utilities;
 
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 
@@ -44,7 +44,7 @@ interface LogChecker
     /**
      * Set the Filesystem instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\Filesystem  $filesystem
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\Filesystem  $filesystem
      *
      * @return self
      */

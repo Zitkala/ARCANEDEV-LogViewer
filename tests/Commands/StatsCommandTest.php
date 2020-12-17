@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Commands;
+namespace Zitkala\LogViewer\Tests\Commands;
 
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     StatsCommandTest
@@ -21,7 +21,7 @@ class StatsCommandTest extends TestCase
     /** @test */
     public function it_can_display_stats(): void
     {
-        $this->artisan('log-viewer:stats')
+        $this->artisan('log-viewer2:stats')
              ->assertExitCode(0);
     }
 }

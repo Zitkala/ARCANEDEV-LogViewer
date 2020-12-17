@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Commands;
+namespace Zitkala\LogViewer\Commands;
 
-use Arcanedev\LogViewer\Tables\StatsTable;
+use Zitkala\LogViewer\Tables\StatsTable;
 
 /**
  * Class     StatsCommand
@@ -23,7 +23,7 @@ class StatsCommand extends Command
      *
      * @var string
      */
-    protected $name        = 'log-viewer:stats';
+    protected $name        = 'log-viewer2:stats';
 
     /**
      * The console command description.
@@ -37,7 +37,7 @@ class StatsCommand extends Command
      *
      * @var string
      */
-    protected $signature   = 'log-viewer:stats';
+    protected $signature   = 'log-viewer2:stats';
 
     /* -----------------------------------------------------------------
      |  Main Methods
@@ -69,7 +69,7 @@ class StatsCommand extends Command
     /**
      * Prepare footer.
      *
-     * @param  \Arcanedev\LogViewer\Tables\StatsTable  $stats
+     * @param  \Zitkala\LogViewer\Tables\StatsTable  $stats
      *
      * @return array
      */

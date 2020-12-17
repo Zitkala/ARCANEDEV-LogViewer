@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Http\Controllers;
+namespace Zitkala\LogViewer\Http\Controllers;
 
-use Arcanedev\LogViewer\Contracts\LogViewer as LogViewerContract;
-use Arcanedev\LogViewer\Entities\{LogEntry, LogEntryCollection};
-use Arcanedev\LogViewer\Exceptions\LogNotFoundException;
-use Arcanedev\LogViewer\Tables\StatsTable;
+use Zitkala\LogViewer\Contracts\LogViewer as LogViewerContract;
+use Zitkala\LogViewer\Entities\{LogEntry, LogEntryCollection};
+use Zitkala\LogViewer\Exceptions\LogNotFoundException;
+use Zitkala\LogViewer\Tables\StatsTable;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Routing\Controller;
@@ -28,7 +28,7 @@ class LogViewerController extends Controller
     /**
      * The log viewer instance
      *
-     * @var \Arcanedev\LogViewer\Contracts\LogViewer
+     * @var \Zitkala\LogViewer\Contracts\LogViewer
      */
     protected $logViewer;
 
@@ -36,7 +36,7 @@ class LogViewerController extends Controller
     protected $perPage = 30;
 
     /** @var string */
-    protected $showRoute = 'log-viewer::logs.show';
+    protected $showRoute = 'log-viewer2::logs.show';
 
     /* -----------------------------------------------------------------
      |  Constructor
@@ -46,12 +46,12 @@ class LogViewerController extends Controller
     /**
      * LogViewerController constructor.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\LogViewer  $logViewer
+     * @param  \Zitkala\LogViewer\Contracts\LogViewer  $logViewer
      */
     public function __construct(LogViewerContract $logViewer)
     {
         $this->logViewer = $logViewer;
-        $this->perPage = config('log-viewer.per-page', $this->perPage);
+        $this->perPage = config('log-viewer2.per-page', $this->perPage);
     }
 
     /* -----------------------------------------------------------------
@@ -208,9 +208,9 @@ class LogViewerController extends Controller
      */
     protected function view($view, $data = [], $mergeData = [])
     {
-        $theme = config('log-viewer.theme');
+        $theme = config('log-viewer2.theme');
 
-        return view()->make("log-viewer::{$theme}.{$view}", $data, $mergeData);
+        return view()->make("log-viewer2::{$theme}.{$view}", $data, $mergeData);
     }
 
     /**
@@ -241,7 +241,7 @@ class LogViewerController extends Controller
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log|null
+     * @return \Zitkala\LogViewer\Entities\Log|null
      */
     protected function getLogOrFail($date)
     {
@@ -260,7 +260,7 @@ class LogViewerController extends Controller
     /**
      * Prepare chart data.
      *
-     * @param  \Arcanedev\LogViewer\Tables\StatsTable  $stats
+     * @param  \Zitkala\LogViewer\Tables\StatsTable  $stats
      *
      * @return string
      */

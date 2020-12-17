@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests;
+namespace Zitkala\LogViewer\Tests;
 
-use Arcanedev\LogViewer\LogViewerServiceProvider;
+use Zitkala\LogViewer\LogViewerServiceProvider;
 
 /**
  * Class     LogViewerServiceProviderTest
@@ -50,8 +50,8 @@ class LogViewerServiceProviderTest extends TestCase
     {
         $expectations = [
             \Illuminate\Support\ServiceProvider::class,
-            \Arcanedev\Support\Providers\ServiceProvider::class,
-            \Arcanedev\Support\Providers\PackageServiceProvider::class,
+            \Zitkala\Support\Providers\ServiceProvider::class,
+            \Zitkala\Support\Providers\PackageServiceProvider::class,
             LogViewerServiceProvider::class,
         ];
 

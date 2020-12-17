@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Exceptions;
+namespace Zitkala\LogViewer\Exceptions;
 
 /**
  * Class     FilesystemException

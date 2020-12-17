@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts;
+namespace Zitkala\LogViewer\Contracts;
 
 /**
  * Interface  Table

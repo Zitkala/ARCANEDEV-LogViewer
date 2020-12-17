@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts\Utilities;
+namespace Zitkala\LogViewer\Contracts\Utilities;
 
-use Arcanedev\LogViewer\Contracts\Patternable;
+use Zitkala\LogViewer\Contracts\Patternable;
 
 /**
  * Interface  Filesystem
@@ -18,7 +18,7 @@ interface Filesystem extends Patternable
      | -----------------------------------------------------------------
      */
 
-    const PATTERN_PREFIX    = 'laravel-';
+    const PATTERN_PREFIX    = 'chatbot-';
     const PATTERN_DATE      = '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]';
     const PATTERN_EXTENSION = '.log';
 
@@ -105,7 +105,7 @@ interface Filesystem extends Patternable
      *
      * @return string
      *
-     * @throws \Arcanedev\LogViewer\Exceptions\FilesystemException
+     * @throws \Zitkala\LogViewer\Exceptions\FilesystemException
      */
     public function read($date);
 
@@ -116,7 +116,7 @@ interface Filesystem extends Patternable
      *
      * @return bool
      *
-     * @throws \Arcanedev\LogViewer\Exceptions\FilesystemException
+     * @throws \Zitkala\LogViewer\Exceptions\FilesystemException
      */
     public function delete(string $date);
 

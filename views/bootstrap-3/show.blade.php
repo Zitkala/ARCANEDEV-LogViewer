@@ -1,12 +1,12 @@
 <?php
 /**
- * @var  Arcanedev\LogViewer\Entities\Log            $log
+ * @var  Zitkala\LogViewer\Entities\Log            $log
  * @var  Illuminate\Pagination\LengthAwarePaginator  $entries
  * @var  string|null                                 $query
  */
 ?>
 
-@extends('log-viewer::bootstrap-3._master')
+@extends('log-viewer2::bootstrap-3._master')
 
 @section('content')
     <h1 class="page-header">@lang('Log') [{{ $log->date }}]</h1>
@@ -45,7 +45,7 @@
                     @lang('Log info') :
 
                     <div class="group-btns pull-right">
-                        <a href="{{ route('log-viewer::logs.download', [$log->date]) }}" class="btn btn-xs btn-success">
+                        <a href="{{ route('log-viewer2::logs.download', [$log->date]) }}" class="btn btn-xs btn-success">
                             <i class="fa fa-download"></i> @lang('Download')
                         </a>
                         <a href="#delete-log-modal" class="btn btn-xs btn-danger" data-toggle="modal">
@@ -85,13 +85,13 @@
                 </div>
                 <div class="panel-footer">
                     {{-- Search --}}
-                    <form action="{{ route('log-viewer::logs.search', [$log->date, $level]) }}" method="GET">
+                    <form action="{{ route('log-viewer2::logs.search', [$log->date, $level]) }}" method="GET">
                         <div class=form-group">
                             <div class="input-group">
                                 <input id="query" name="query" class="form-control" value="{{ $query }}" placeholder="@lang('Type here to search')">
                                 <span class="input-group-btn">
                                     @unless (is_null($query))
-                                        <a href="{{ route('log-viewer::logs.show', [$log->date]) }}" class="btn btn-default">
+                                        <a href="{{ route('log-viewer2::logs.show', [$log->date]) }}" class="btn btn-default">
                                             (@lang(':count results', ['count' => $entries->count()])) <span class="glyphicon glyphicon-remove"></span>
                                         </a>
                                     @endunless
@@ -130,7 +130,7 @@
                         </thead>
                         <tbody>
                             @forelse($entries as $key => $entry)
-                                <?php /** @var  Arcanedev\LogViewer\Entities\LogEntry  $entry */ ?>
+                                <?php /** @var  Zitkala\LogViewer\Entities\LogEntry  $entry */ ?>
                                 <tr>
                                     <td>
                                         <span class="label label-env">{{ $entry->env }}</span>
@@ -208,7 +208,7 @@
     {{-- DELETE MODAL --}}
     <div id="delete-log-modal" class="modal fade">
         <div class="modal-dialog">
-            <form id="delete-log-form" action="{{ route('log-viewer::logs.delete') }}" method="POST">
+            <form id="delete-log-form" action="{{ route('log-viewer2::logs.delete') }}" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="hidden" name="date" value="{{ $log->date }}">
@@ -252,7 +252,7 @@
                         submitBtn.button('reset');
                         if (data.result === 'success') {
                             deleteLogModal.modal('hide');
-                            location.replace("{{ route('log-viewer::logs.list') }}");
+                            location.replace("{{ route('log-viewer2::logs.list') }}");
                         }
                         else {
                             alert('OOPS ! This is a lack of coffee exception !')
@@ -268,11 +268,11 @@
                 return false;
             });
 
-            @unless (empty(log_styler()->toHighlight()))
+            @unless (empty(log_styler2()->toHighlight()))
                 @php
                     $htmlHighlight = version_compare(PHP_VERSION, '7.4.0') >= 0
-                        ? join('|', log_styler()->toHighlight())
-                        : join(log_styler()->toHighlight(), '|');
+                        ? join('|', log_styler2()->toHighlight())
+                        : join(log_styler2()->toHighlight(), '|');
                 @endphp
                 $('.stack-content').each(function() {
                     var $this = $(this);

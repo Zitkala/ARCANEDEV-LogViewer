@@ -1,4 +1,4 @@
-@extends('log-viewer::bootstrap-3._master')
+@extends('log-viewer2::bootstrap-3._master')
 
 @section('content')
     <h1 class="page-header">@lang('Dashboard')</h1>
@@ -14,7 +14,7 @@
                         <div class="col-md-4">
                             <div class="info-box level level-{{ $level }} {{ $item['count'] === 0 ? 'level-empty' : '' }}">
                                 <span class="info-box-icon">
-                                    {{ log_styler()->icon($level) }}
+                                    {{ log_styler2()->icon($level) }}
                                 </span>
 
                                 <div class="info-box-content">

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Commands;
+namespace Zitkala\LogViewer\Tests\Commands;
 
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     ClearCommandTest
@@ -18,7 +18,7 @@ class ClearCommandTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\LogViewer */
+    /** @var  \Zitkala\LogViewer\LogViewer */
     private $logViewer;
 
     /** @var  string */
@@ -33,7 +33,7 @@ class ClearCommandTest extends TestCase
     {
         parent::setUp();
 
-        $this->logViewer = $this->app->make(\Arcanedev\LogViewer\Contracts\LogViewer::class);
+        $this->logViewer = $this->app->make(\Zitkala\LogViewer\Contracts\LogViewer::class);
         $this->path      = storage_path('logs-to-clear');
 
         $this->setupForTests();
@@ -60,7 +60,7 @@ class ClearCommandTest extends TestCase
 
         static::assertGreaterThanOrEqual(1, $this->logViewer->count());
 
-        $this->artisan('log-viewer:clear')
+        $this->artisan('log-viewer2:clear')
              ->expectsQuestion('This will delete all the log files, Do you wish to continue?', 'yes')
              ->expectsOutput('Successfully cleared the logs!')
              ->assertExitCode(0);
@@ -82,6 +82,6 @@ class ClearCommandTest extends TestCase
             mkdir($this->path, 0777, true);
 
         $this->logViewer->setPath($this->path);
-        $this->app['config']->set(['log-viewer.storage-path' => $this->path]);
+        $this->app['config']->set(['log-viewer2.storage-path' => $this->path]);
     }
 }

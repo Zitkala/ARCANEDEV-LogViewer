@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer;
+namespace Zitkala\LogViewer;
 
-use Arcanedev\Support\Providers\PackageServiceProvider;
+use Zitkala\Support\Providers\PackageServiceProvider;
 
 /**
  * Class     LogViewerServiceProvider
@@ -23,7 +23,7 @@ class LogViewerServiceProvider extends PackageServiceProvider
      *
      * @var string
      */
-    protected $package = 'log-viewer';
+    protected $package = 'log-viewer2';
 
     /* -----------------------------------------------------------------
      |  Main Methods

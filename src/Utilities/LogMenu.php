@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Utilities;
+namespace Zitkala\LogViewer\Utilities;
 
-use Arcanedev\LogViewer\Contracts\Utilities\LogMenu as LogMenuContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogStyler as LogStylerContract;
-use Arcanedev\LogViewer\Entities\Log;
+use Zitkala\LogViewer\Contracts\Utilities\LogMenu as LogMenuContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogStyler as LogStylerContract;
+use Zitkala\LogViewer\Entities\Log;
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 
 /**
@@ -31,7 +31,7 @@ class LogMenu implements LogMenuContract
     /**
      * The log styler instance.
      *
-     * @var \Arcanedev\LogViewer\Contracts\Utilities\LogStyler
+     * @var \Zitkala\LogViewer\Contracts\Utilities\LogStyler
      */
     private $styler;
 
@@ -44,7 +44,7 @@ class LogMenu implements LogMenuContract
      * LogMenu constructor.
      *
      * @param  \Illuminate\Contracts\Config\Repository             $config
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogStyler  $styler
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogStyler  $styler
      */
     public function __construct(ConfigContract $config, LogStylerContract $styler)
     {
@@ -74,7 +74,7 @@ class LogMenu implements LogMenuContract
     /**
      * Set the log styler instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogStyler  $styler
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogStyler  $styler
      *
      * @return self
      */
@@ -93,7 +93,7 @@ class LogMenu implements LogMenuContract
     /**
      * Make log menu.
      *
-     * @param  \Arcanedev\LogViewer\Entities\Log  $log
+     * @param  \Zitkala\LogViewer\Entities\Log  $log
      * @param  bool                               $trans
      *
      * @return array
@@ -143,6 +143,6 @@ class LogMenu implements LogMenuContract
      */
     private function config($key, $default = null)
     {
-        return $this->config->get("log-viewer.$key", $default);
+        return $this->config->get("log-viewer2.$key", $default);
     }
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts;
+namespace Zitkala\LogViewer\Contracts;
 
-use Arcanedev\LogViewer\Contracts\Utilities\Filesystem;
+use Zitkala\LogViewer\Contracts\Utilities\Filesystem;
 
 /**
  * Interface  Patternable

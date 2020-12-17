@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts\Utilities;
+namespace Zitkala\LogViewer\Contracts\Utilities;
 
 /**
  * Interface  LogStyler

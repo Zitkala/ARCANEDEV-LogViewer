@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Utilities;
+namespace Zitkala\LogViewer\Tests\Utilities;
 
-use Arcanedev\LogViewer\Utilities\LogLevels;
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Utilities\LogLevels;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     LogLevelsTest
@@ -19,7 +19,7 @@ class LogLevelsTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Utilities\LogLevels  */
+    /** @var  \Zitkala\LogViewer\Utilities\LogLevels  */
     private $levels;
 
     /* -----------------------------------------------------------------
@@ -31,7 +31,7 @@ class LogLevelsTest extends TestCase
     {
         parent::setUp();
 
-        $this->levels = $this->app->make(\Arcanedev\LogViewer\Contracts\Utilities\LogLevels::class);
+        $this->levels = $this->app->make(\Zitkala\LogViewer\Contracts\Utilities\LogLevels::class);
     }
 
     public function tearDown(): void

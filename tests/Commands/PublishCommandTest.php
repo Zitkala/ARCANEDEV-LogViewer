@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Commands;
+namespace Zitkala\LogViewer\Tests\Commands;
 
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     PublishCommandTest
@@ -34,7 +34,7 @@ class PublishCommandTest extends TestCase
     /** @test */
     public function it_can_publish_all(): void
     {
-        $this->artisan('log-viewer:publish')
+        $this->artisan('log-viewer2:publish')
              ->assertExitCode(0);
 
         static::assertHasConfigFile();
@@ -45,7 +45,7 @@ class PublishCommandTest extends TestCase
     /** @test */
     public function it_can_publish_all_with_force(): void
     {
-        $this->artisan('log-viewer:publish', ['--force'   => true])
+        $this->artisan('log-viewer2:publish', ['--force'   => true])
              ->assertExitCode(0);
 
         static::assertHasConfigFile();
@@ -56,7 +56,7 @@ class PublishCommandTest extends TestCase
     /** @test */
     public function it_can_publish_only_config(): void
     {
-        $this->artisan('log-viewer:publish', ['--tag' => 'config'])
+        $this->artisan('log-viewer2:publish', ['--tag' => 'config'])
              ->assertExitCode(0);
 
         static::assertHasConfigFile();
@@ -73,7 +73,7 @@ class PublishCommandTest extends TestCase
      */
     public function it_can_publish_only_translations(string $tag): void
     {
-        $this->artisan('log-viewer:publish', ['--tag' => $tag])
+        $this->artisan('log-viewer2:publish', ['--tag' => $tag])
              ->assertExitCode(0);
 
         static::assertHasNotConfigFile();
@@ -85,7 +85,7 @@ class PublishCommandTest extends TestCase
     {
         return [
             ['translations'],
-            ['log-viewer-translations'],
+            ['log-viewer2-translations'],
         ];
     }
 
@@ -123,7 +123,7 @@ class PublishCommandTest extends TestCase
 
         static::assertEmpty(
             $missing = array_diff($locales, static::$locales),
-            'The locales ['.implode(', ', $missing).'] are missing in the Arcanedev\\LogViewer\\Tests\\TestCase::$locales (line 29) for tests purposes.'
+            'The locales ['.implode(', ', $missing).'] are missing in the Zitkala\\LogViewer\\Tests\\TestCase::$locales (line 29) for tests purposes.'
         );
 
         foreach ($directories as $directory) {
@@ -172,7 +172,7 @@ class PublishCommandTest extends TestCase
      */
     private function getConfigFilePath(): string
     {
-        return $this->getConfigPath().'/log-viewer.php';
+        return $this->getConfigPath().'/log-viewer2.php';
     }
 
     /**
@@ -182,7 +182,7 @@ class PublishCommandTest extends TestCase
      */
     private function getLocalizationFolder()
     {
-        return realpath(base_path().'/resources/lang/vendor/log-viewer');
+        return realpath(base_path().'/resources/lang/vendor/log-viewer2');
     }
 
     /**

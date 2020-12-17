@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Commands;
+namespace Zitkala\LogViewer\Commands;
 
 /**
  * Class     ClearCommand
@@ -21,7 +21,7 @@ class ClearCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'log-viewer:clear';
+    protected $signature = 'log-viewer2:clear';
 
     /**
      * The console command description.

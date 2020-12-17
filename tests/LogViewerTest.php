@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests;
+namespace Zitkala\LogViewer\Tests;
 
-use Arcanedev\LogViewer\Entities\Log;
-use Arcanedev\LogViewer\LogViewer;
+use Zitkala\LogViewer\Entities\Log;
+use Zitkala\LogViewer\LogViewer;
 
 /**
  * Class     LogViewerTest
@@ -19,7 +19,7 @@ class LogViewerTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\LogViewer */
+    /** @var  \Zitkala\LogViewer\LogViewer */
     private $logViewer;
 
     /* -----------------------------------------------------------------
@@ -31,7 +31,7 @@ class LogViewerTest extends TestCase
     {
         parent::setUp();
 
-        $this->logViewer = $this->app->make(\Arcanedev\LogViewer\Contracts\LogViewer::class);
+        $this->logViewer = $this->app->make(\Zitkala\LogViewer\Contracts\LogViewer::class);
     }
 
     protected function tearDown(): void
@@ -55,7 +55,7 @@ class LogViewerTest extends TestCase
     /** @test */
     public function it_can_be_instantiated_with_helper(): void
     {
-        static::assertInstanceOf(LogViewer::class, log_viewer());
+        static::assertInstanceOf(LogViewer::class, log_viewer2());
     }
 
     /** @test */
@@ -325,7 +325,7 @@ class LogViewerTest extends TestCase
     /** @test */
     public function it_can_set_and_get_pattern(): void
     {
-        $prefix    = 'laravel-';
+        $prefix    = 'chatbot-';
         $date      = '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]';
         $extension = '.log';
 

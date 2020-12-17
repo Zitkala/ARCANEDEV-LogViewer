@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Entities;
+namespace Zitkala\LogViewer\Entities;
 
-use Arcanedev\LogViewer\Helpers\LogParser;
+use Zitkala\LogViewer\Helpers\LogParser;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\{Arrayable, Jsonable};
 use JsonSerializable;
@@ -128,7 +128,7 @@ class LogEntry implements Arrayable, Jsonable, JsonSerializable
      *
      * @param  string  $datetime
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntry
+     * @return \Zitkala\LogViewer\Entities\LogEntry
      */
     private function setDatetime($datetime)
     {
@@ -168,7 +168,7 @@ class LogEntry implements Arrayable, Jsonable, JsonSerializable
      */
     public function name()
     {
-        return log_levels()->get($this->level);
+        return log_levels2()->get($this->level);
     }
 
     /**
@@ -178,7 +178,7 @@ class LogEntry implements Arrayable, Jsonable, JsonSerializable
      */
     public function icon()
     {
-        return log_styler()->icon($this->level);
+        return log_styler2()->icon($this->level);
     }
 
     /**

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Utilities;
+namespace Zitkala\LogViewer\Tests\Utilities;
 
-use Arcanedev\LogViewer\Tests\TestCase;
-use Arcanedev\LogViewer\Utilities\LogStyler;
+use Zitkala\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Utilities\LogStyler;
 use Illuminate\Support\HtmlString;
 
 /**
@@ -20,7 +20,7 @@ class LogStylerTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Utilities\LogStyler */
+    /** @var  \Zitkala\LogViewer\Utilities\LogStyler */
     private $styler;
 
     /* -----------------------------------------------------------------
@@ -32,7 +32,7 @@ class LogStylerTest extends TestCase
     {
         parent::setUp();
 
-        $this->styler = $this->app->make(\Arcanedev\LogViewer\Contracts\Utilities\LogStyler::class);
+        $this->styler = $this->app->make(\Zitkala\LogViewer\Contracts\Utilities\LogStyler::class);
     }
 
     protected function tearDown(): void
@@ -96,7 +96,7 @@ class LogStylerTest extends TestCase
         foreach (self::$logLevels as $level) {
             static::assertMatchesRegExp(
                 '/^<i class="fa fa-fw fa-(.*)"><\/i>$/',
-                log_styler()->icon($level)->toHtml()
+                log_styler2()->icon($level)->toHtml()
             );
         }
     }
@@ -105,7 +105,7 @@ class LogStylerTest extends TestCase
     public function it_can_use_helper_get_color(): void
     {
         foreach (self::$logLevels as $level) {
-            static::assertHexColor(log_styler()->color($level));
+            static::assertHexColor(log_styler2()->color($level));
         }
     }
 

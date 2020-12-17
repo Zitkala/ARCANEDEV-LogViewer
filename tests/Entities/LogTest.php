@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Entities;
+namespace Zitkala\LogViewer\Tests\Entities;
 
-use Arcanedev\LogViewer\Entities\Log;
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Entities\Log;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     LogTest
@@ -19,7 +19,7 @@ class LogTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Entities\Log */
+    /** @var  \Zitkala\LogViewer\Entities\Log */
     private $log;
 
     /* -----------------------------------------------------------------

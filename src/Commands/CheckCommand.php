@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Commands;
+namespace Zitkala\LogViewer\Commands;
 
-use Arcanedev\LogViewer\Contracts\Utilities\LogChecker as LogCheckerContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogChecker as LogCheckerContract;
 
 /**
  * Class     CheckCommand
@@ -23,7 +23,7 @@ class CheckCommand extends Command
      *
      * @var string
      */
-    protected $name      = 'log-viewer:check';
+    protected $name      = 'log-viewer2:check';
 
     /**
      * The console command description.
@@ -37,7 +37,7 @@ class CheckCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'log-viewer:check';
+    protected $signature = 'log-viewer2:check';
 
     /* -----------------------------------------------------------------
      |  Getter & Setters
@@ -47,7 +47,7 @@ class CheckCommand extends Command
     /**
      * Get the Log Checker instance.
      *
-     * @return \Arcanedev\LogViewer\Contracts\Utilities\LogChecker
+     * @return \Zitkala\LogViewer\Contracts\Utilities\LogChecker
      */
     protected function getChecker()
     {

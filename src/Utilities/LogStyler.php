@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Utilities;
+namespace Zitkala\LogViewer\Utilities;
 
-use Arcanedev\LogViewer\Contracts\Utilities\LogStyler as LogStylerContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogStyler as LogStylerContract;
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 use Illuminate\Support\HtmlString;
 
@@ -57,7 +57,7 @@ class LogStyler implements LogStylerContract
      */
     private function get($key, $default = null)
     {
-        return $this->config->get("log-viewer.$key", $default);
+        return $this->config->get("log-viewer2.$key", $default);
     }
 
     /* -----------------------------------------------------------------

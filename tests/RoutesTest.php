@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests;
+namespace Zitkala\LogViewer\Tests;
 
 /**
  * Class     RoutesTest
@@ -19,7 +19,7 @@ class RoutesTest extends TestCase
     /** @test */
     public function it_can_see_dashboard_page(): void
     {
-        $response = $this->get(route('log-viewer::dashboard'));
+        $response = $this->get(route('log-viewer2::dashboard'));
         $response->assertSuccessful();
 
         static::assertStringContainsString(
@@ -31,7 +31,7 @@ class RoutesTest extends TestCase
     /** @test */
     public function it_can_see_logs_page(): void
     {
-        $response = $this->get(route('log-viewer::logs.list'));
+        $response = $this->get(route('log-viewer2::logs.list'));
         $response->assertSuccessful();
 
         static::assertStringContainsString(
@@ -46,7 +46,7 @@ class RoutesTest extends TestCase
     {
         $date = '2015-01-01';
 
-        $response = $this->get(route('log-viewer::logs.show', [$date]));
+        $response = $this->get(route('log-viewer2::logs.show', [$date]));
         $response->assertSuccessful();
 
         static::assertStringContainsString(
@@ -62,7 +62,7 @@ class RoutesTest extends TestCase
         $date     = '2015-01-01';
         $level    = 'error';
 
-        $response = $this->get(route('log-viewer::logs.filter', [$date, $level]));
+        $response = $this->get(route('log-viewer2::logs.filter', [$date, $level]));
         $response->assertSuccessful();
 
         static::assertStringContainsString(
@@ -79,7 +79,7 @@ class RoutesTest extends TestCase
         $level    = 'all';
         $query    = 'This is an error log.';
 
-        $response = $this->get(route('log-viewer::logs.search', compact('date', 'level', 'query')));
+        $response = $this->get(route('log-viewer2::logs.search', compact('date', 'level', 'query')));
         $response->assertSuccessful();
 
         /** @var \Illuminate\View\View $view */
@@ -102,7 +102,7 @@ class RoutesTest extends TestCase
         shuffle($query);
         $query    = implode(' ', $query);
 
-        $response = $this->get(route('log-viewer::logs.search', compact('date', 'level', 'query')));
+        $response = $this->get(route('log-viewer2::logs.search', compact('date', 'level', 'query')));
         $response->assertSuccessful();
 
         /** @var \Illuminate\View\View $view */
@@ -125,7 +125,7 @@ class RoutesTest extends TestCase
         shuffle($query);
         $query    = implode(' ', $query);
 
-        $response = $this->get(route('log-viewer::logs.search', compact('date', 'level', 'query')));
+        $response = $this->get(route('log-viewer2::logs.search', compact('date', 'level', 'query')));
         $response->assertSuccessful();
 
         /** @var \Illuminate\View\View $view */
@@ -148,7 +148,7 @@ class RoutesTest extends TestCase
         shuffle($query);
         $query    = implode(' ', $query);
 
-        $response = $this->get(route('log-viewer::logs.search', compact('date', 'level', 'query')));
+        $response = $this->get(route('log-viewer2::logs.search', compact('date', 'level', 'query')));
         $response->assertSuccessful();
 
         /** @var \Illuminate\View\View $view */
@@ -168,8 +168,8 @@ class RoutesTest extends TestCase
         $date  = '2015-01-01';
         $level = 'notice';
 
-        $this->get(route('log-viewer::logs.search', compact('date', 'level')))
-             ->assertRedirect(route('log-viewer::logs.show', [$date]));
+        $this->get(route('log-viewer2::logs.search', compact('date', 'level')))
+             ->assertRedirect(route('log-viewer2::logs.show', [$date]));
     }
 
     /** @test */
@@ -178,7 +178,7 @@ class RoutesTest extends TestCase
         $date     = '2015-01-01';
         $level    = 'all';
 
-        $response = $this->get(route('log-viewer::logs.filter', [$date, $level]));
+        $response = $this->get(route('log-viewer2::logs.filter', [$date, $level]));
 
         static::assertTrue($response->isRedirection());
         static::assertEquals(302, $response->getStatusCode());
@@ -190,7 +190,7 @@ class RoutesTest extends TestCase
     {
         $date = '2015-01-01';
 
-        $response = $this->get(route('log-viewer::logs.download', [$date]));
+        $response = $this->get(route('log-viewer2::logs.download', [$date]));
         $response->assertSuccessful();
 
         /** @var  \Symfony\Component\HttpFoundation\BinaryFileResponse  $base */
@@ -209,14 +209,14 @@ class RoutesTest extends TestCase
             $date = date('Y-m-d')
         );
 
-        $response = $this->call('DELETE', route('log-viewer::logs.delete', compact('date')), [], [], [], ['HTTP_X-Requested-With' => 'XMLHttpRequest']);
+        $response = $this->call('DELETE', route('log-viewer2::logs.delete', compact('date')), [], [], [], ['HTTP_X-Requested-With' => 'XMLHttpRequest']);
         $response->assertExactJson(['result' => 'success']);
     }
 
     /** @test */
     public function it_must_throw_log_not_found_exception_on_show(): void
     {
-        $response = $this->get(route('log-viewer::logs.show', ['0000-00-00']));
+        $response = $this->get(route('log-viewer2::logs.show', ['0000-00-00']));
 
         static::assertInstanceOf(
             \Symfony\Component\HttpKernel\Exception\HttpException::class,
@@ -230,16 +230,16 @@ class RoutesTest extends TestCase
     /** @test */
     public function it_must_throw_log_not_found_exception_on_delete(): void
     {
-        $response = $this->delete(route('log-viewer::logs.delete'), ['date' => '0000-00-00'], ['HTTP_X-Requested-With' => 'XMLHttpRequest']);
+        $response = $this->delete(route('log-viewer2::logs.delete'), ['date' => '0000-00-00'], ['HTTP_X-Requested-With' => 'XMLHttpRequest']);
 
-        static::assertInstanceOf(\Arcanedev\LogViewer\Exceptions\FilesystemException::class, $response->exception);
+        static::assertInstanceOf(\Zitkala\LogViewer\Exceptions\FilesystemException::class, $response->exception);
         static::assertStringStartsWith('The log(s) could not be located at : ', $response->exception->getMessage());
     }
 
     /** @test */
     public function it_must_throw_method_not_allowed_on_delete(): void
     {
-        $response = $this->delete(route('log-viewer::logs.delete'));
+        $response = $this->delete(route('log-viewer2::logs.delete'));
         $response->assertStatus(405);
 
         static::assertInstanceOf(

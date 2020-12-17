@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Commands;
+namespace Zitkala\LogViewer\Commands;
 
-use Arcanedev\LogViewer\LogViewerServiceProvider;
+use Zitkala\LogViewer\LogViewerServiceProvider;
 use Symfony\Component\Console\Input\InputOption;
 
 /**
@@ -24,7 +24,7 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $name      = 'log-viewer:publish';
+    protected $name      = 'log-viewer2:publish';
 
     /**
      * The console command description.
@@ -38,7 +38,7 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'log-viewer:publish
+    protected $signature = 'log-viewer2:publish
             {--tag= : One or many tags that have assets you want to publish.}
             {--force : Overwrite any existing files.}';
 

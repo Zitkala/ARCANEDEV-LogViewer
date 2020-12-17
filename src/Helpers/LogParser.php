@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Helpers;
+namespace Zitkala\LogViewer\Helpers;
 
-use Arcanedev\LogViewer\Utilities\LogLevels;
+use Zitkala\LogViewer\Utilities\LogLevels;
 use Illuminate\Support\Str;
 
 /**

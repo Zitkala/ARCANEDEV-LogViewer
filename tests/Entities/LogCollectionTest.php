@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Entities;
+namespace Zitkala\LogViewer\Tests\Entities;
 
-use Arcanedev\LogViewer\Entities\LogCollection;
-use Arcanedev\LogViewer\Exceptions\LogNotFoundException;
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Entities\LogCollection;
+use Zitkala\LogViewer\Exceptions\LogNotFoundException;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     LogCollectionTest
@@ -20,7 +20,7 @@ class LogCollectionTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Entities\LogCollection */
+    /** @var  \Zitkala\LogViewer\Entities\LogCollection */
     private $logs;
 
     /* -----------------------------------------------------------------
@@ -61,7 +61,7 @@ class LogCollectionTest extends TestCase
         static::assertSame(16, $this->logs->total());
 
         foreach ($this->logs as $date => $log) {
-            /** @var  \Arcanedev\LogViewer\Entities\Log  $log */
+            /** @var  \Zitkala\LogViewer\Entities\Log  $log */
             static::assertLog($log, $date);
             static::assertCount(8,  $log->entries());
             static::assertSame(8, $log->entries()->count());
@@ -153,7 +153,7 @@ class LogCollectionTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_log_menu(): void
+    public function it_can_get_log_menu2(): void
     {
         foreach(self::$locales as $locale) {
             $this->app->setLocale($locale);

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Entities;
+namespace Zitkala\LogViewer\Tests\Entities;
 
-use Arcanedev\LogViewer\Entities\LogEntryCollection;
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Entities\LogEntryCollection;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     LogEntryCollectionTest
@@ -19,7 +19,7 @@ class LogEntryCollectionTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Entities\LogEntryCollection */
+    /** @var  \Zitkala\LogViewer\Entities\LogEntryCollection */
     private $entries;
 
     /* -----------------------------------------------------------------
@@ -124,7 +124,7 @@ class LogEntryCollectionTest extends TestCase
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntryCollection
+     * @return \Zitkala\LogViewer\Entities\LogEntryCollection
      */
     private function getEntries($date)
     {

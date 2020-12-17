@@ -1,4 +1,4 @@
-@extends('log-viewer::bootstrap-4._master')
+@extends('log-viewer2::bootstrap-4._master')
 
 @section('content')
     <div class="page-header mb-4">
@@ -16,7 +16,7 @@
                     <div class="col-sm-6 col-md-12 col-lg-4 mb-3">
                         <div class="box level-{{ $level }} {{ $item['count'] === 0 ? 'empty' : '' }}">
                             <div class="box-icon">
-                                {!! log_styler()->icon($level) !!}
+                                {!! log_styler2()->icon($level) !!}
                             </div>
 
                             <div class="box-content">

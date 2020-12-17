@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Providers;
+namespace Zitkala\LogViewer\Providers;
 
-use Arcanedev\LogViewer\Contracts\LogViewer as LogViewerContract;
-use Arcanedev\LogViewer\Contracts\Utilities\Factory as FactoryContract;
-use Arcanedev\LogViewer\Contracts\Utilities\Filesystem as FilesystemContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogChecker as LogCheckerContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogMenu as LogMenuContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogStyler as LogStylerContract;
-use Arcanedev\LogViewer\LogViewer;
-use Arcanedev\LogViewer\Utilities;
-use Arcanedev\Support\Providers\ServiceProvider;
+use Zitkala\LogViewer\Contracts\LogViewer as LogViewerContract;
+use Zitkala\LogViewer\Contracts\Utilities\Factory as FactoryContract;
+use Zitkala\LogViewer\Contracts\Utilities\Filesystem as FilesystemContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogChecker as LogCheckerContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogMenu as LogMenuContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogStyler as LogStylerContract;
+use Zitkala\LogViewer\LogViewer;
+use Zitkala\LogViewer\Utilities;
+use Zitkala\Support\Providers\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
 /**
@@ -81,7 +81,7 @@ class DeferredServicesProvider extends ServiceProvider implements DeferrableProv
         $this->singleton(LogLevelsContract::class, function ($app) {
             return new Utilities\LogLevels(
                 $app['translator'],
-                $app['config']->get('log-viewer.locale')
+                $app['config']->get('log-viewer2.locale')
             );
         });
     }
@@ -110,12 +110,12 @@ class DeferredServicesProvider extends ServiceProvider implements DeferrableProv
         $this->singleton(FilesystemContract::class, function ($app) {
             /** @var  \Illuminate\Config\Repository  $config */
             $config     = $app['config'];
-            $filesystem = new Utilities\Filesystem($app['files'], $config->get('log-viewer.storage-path'));
+            $filesystem = new Utilities\Filesystem($app['files'], $config->get('log-viewer2.storage-path'));
 
             return $filesystem->setPattern(
-                $config->get('log-viewer.pattern.prefix', FilesystemContract::PATTERN_PREFIX),
-                $config->get('log-viewer.pattern.date', FilesystemContract::PATTERN_DATE),
-                $config->get('log-viewer.pattern.extension', FilesystemContract::PATTERN_EXTENSION)
+                $config->get('log-viewer2.pattern.prefix', FilesystemContract::PATTERN_PREFIX),
+                $config->get('log-viewer2.pattern.date', FilesystemContract::PATTERN_DATE),
+                $config->get('log-viewer2.pattern.extension', FilesystemContract::PATTERN_EXTENSION)
             );
         });
     }

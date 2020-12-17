@@ -230,43 +230,43 @@
         }
 
         .badge.level-all, .level.level-all, .info-box.level-all {
-            background-color: {{ log_styler()->color('all') }};
+            background-color: {{ log_styler2()->color('all') }};
         }
 
         .badge.level-emergency, .level.level-emergency, .info-box.level-emergency {
-            background-color: {{ log_styler()->color('emergency') }};
+            background-color: {{ log_styler2()->color('emergency') }};
         }
 
         .badge.level-alert, .level.level-alert, .info-box.level-alert  {
-            background-color: {{ log_styler()->color('alert') }};
+            background-color: {{ log_styler2()->color('alert') }};
         }
 
         .badge.level-critical, .level.level-critical, .info-box.level-critical {
-            background-color: {{ log_styler()->color('critical') }};
+            background-color: {{ log_styler2()->color('critical') }};
         }
 
         .badge.level-error, .level.level-error, .info-box.level-error {
-            background-color: {{ log_styler()->color('error') }};
+            background-color: {{ log_styler2()->color('error') }};
         }
 
         .badge.level-warning, .level.level-warning, .info-box.level-warning {
-            background-color: {{ log_styler()->color('warning') }};
+            background-color: {{ log_styler2()->color('warning') }};
         }
 
         .badge.level-notice, .level.level-notice, .info-box.level-notice {
-            background-color: {{ log_styler()->color('notice') }};
+            background-color: {{ log_styler2()->color('notice') }};
         }
 
         .badge.level-info, .level.level-info, .info-box.level-info {
-            background-color: {{ log_styler()->color('info') }};
+            background-color: {{ log_styler2()->color('info') }};
         }
 
         .badge.level-debug, .level.level-debug, .info-box.level-debug {
-            background-color: {{ log_styler()->color('debug') }};
+            background-color: {{ log_styler2()->color('debug') }};
         }
 
         .badge.level-empty, .level.level-empty {
-            background-color: {{ log_styler()->color('empty') }};
+            background-color: {{ log_styler2()->color('empty') }};
         }
 
         .badge.label-env, .label.label-env {
@@ -289,19 +289,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{ route('log-viewer::dashboard') }}" class="navbar-brand">
+                <a href="{{ route('log-viewer2::dashboard') }}" class="navbar-brand">
                     <i class="fa fa-fw fa-book"></i> LogViewer
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
-                    <li class="{{ Route::is('log-viewer::dashboard') ? 'active' : '' }}">
-                        <a href="{{ route('log-viewer::dashboard') }}">
+                    <li class="{{ Route::is('log-viewer2::dashboard') ? 'active' : '' }}">
+                        <a href="{{ route('log-viewer2::dashboard') }}">
                             <i class="fa fa-dashboard"></i> @lang('Dashboard')
                         </a>
                     </li>
-                    <li class="{{ Route::is('log-viewer::logs.list') ? 'active' : '' }}">
-                        <a href="{{ route('log-viewer::logs.list') }}">
+                    <li class="{{ Route::is('log-viewer2::logs.list') ? 'active' : '' }}">
+                        <a href="{{ route('log-viewer2::logs.list') }}">
                             <i class="fa fa-archive"></i> @lang('Logs')
                         </a>
                     </li>
@@ -319,7 +319,7 @@
     <footer class="main-footer">
         <div class="container">
             <p class="text-muted pull-left">
-                LogViewer - <span class="label label-info">version {{ log_viewer()->version() }}</span>
+                LogViewer - <span class="label label-info">version {{ log_viewer2()->version() }}</span>
             </p>
             <p class="text-muted pull-right">
                 Created with <i class="fa fa-heart"></i> by ARCANEDEV <sup>&copy;</sup>

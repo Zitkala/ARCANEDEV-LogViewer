@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Entities;
+namespace Zitkala\LogViewer\Entities;
 
-use Arcanedev\LogViewer\Helpers\LogParser;
+use Zitkala\LogViewer\Helpers\LogParser;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\LazyCollection;
 
@@ -103,7 +103,7 @@ class LogEntryCollection extends LazyCollection
 
         array_walk($tree, function(&$count, $level) use ($trans) {
             $count = [
-                'name'  => $trans ? log_levels()->get($level) : $level,
+                'name'  => $trans ? log_levels2()->get($level) : $level,
                 'count' => $count,
             ];
         });
@@ -125,7 +125,7 @@ class LogEntryCollection extends LazyCollection
     {
         $levels = array_merge_recursive(
             ['all'],
-            array_keys(log_viewer()->levels(true))
+            array_keys(log_viewer2()->levels(true))
         );
 
         return array_map(function () {

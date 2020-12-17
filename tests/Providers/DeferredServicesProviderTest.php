@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Providers;
+namespace Zitkala\LogViewer\Tests\Providers;
 
-use Arcanedev\LogViewer\Contracts;
-use Arcanedev\LogViewer\Providers\DeferredServicesProvider;
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Contracts;
+use Zitkala\LogViewer\Providers\DeferredServicesProvider;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     DeferredServicesProviderTest
@@ -20,7 +20,7 @@ class DeferredServicesProviderTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Providers\DeferredServicesProvider */
+    /** @var  \Zitkala\LogViewer\Providers\DeferredServicesProvider */
     private $provider;
 
     /* -----------------------------------------------------------------
@@ -54,7 +54,7 @@ class DeferredServicesProviderTest extends TestCase
         $expectations = [
             \Illuminate\Support\ServiceProvider::class,
             \Illuminate\Contracts\Support\DeferrableProvider::class,
-            \Arcanedev\Support\Providers\ServiceProvider::class,
+            \Zitkala\Support\Providers\ServiceProvider::class,
             DeferredServicesProvider::class,
         ];
 

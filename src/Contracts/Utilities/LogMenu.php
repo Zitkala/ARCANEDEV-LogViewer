@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts\Utilities;
+namespace Zitkala\LogViewer\Contracts\Utilities;
 
-use Arcanedev\LogViewer\Entities\Log;
+use Zitkala\LogViewer\Entities\Log;
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 
 /**
@@ -31,7 +31,7 @@ interface LogMenu
     /**
      * Set the log styler instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogStyler  $styler
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogStyler  $styler
      *
      * @return self
      */
@@ -45,7 +45,7 @@ interface LogMenu
     /**
      * Make log menu.
      *
-     * @param  \Arcanedev\LogViewer\Entities\Log  $log
+     * @param  \Zitkala\LogViewer\Entities\Log  $log
      * @param  bool                               $trans
      *
      * @return array

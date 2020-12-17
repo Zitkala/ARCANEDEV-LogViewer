@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Entities;
+namespace Zitkala\LogViewer\Entities;
 
 use Illuminate\Contracts\Support\{Arrayable, Jsonable};
 use Illuminate\Support\Carbon;
@@ -27,7 +27,7 @@ class Log implements Arrayable, Jsonable, JsonSerializable
     /** @var string */
     private $path;
 
-    /** @var \Arcanedev\LogViewer\Entities\LogEntryCollection */
+    /** @var \Zitkala\LogViewer\Entities\LogEntryCollection */
     private $entries;
 
     /** @var \SplFileInfo */
@@ -132,7 +132,7 @@ class Log implements Arrayable, Jsonable, JsonSerializable
      *
      * @param  string  $level
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntryCollection
+     * @return \Zitkala\LogViewer\Entities\LogEntryCollection
      */
     public function entries($level = 'all')
     {
@@ -146,7 +146,7 @@ class Log implements Arrayable, Jsonable, JsonSerializable
      *
      * @param  string  $level
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntryCollection
+     * @return \Zitkala\LogViewer\Entities\LogEntryCollection
      */
     public function getByLevel($level)
     {
@@ -184,7 +184,7 @@ class Log implements Arrayable, Jsonable, JsonSerializable
      */
     public function menu($trans = true)
     {
-        return log_menu()->make($this, $trans);
+        return log_menu2()->make($this, $trans);
     }
 
     /* -----------------------------------------------------------------

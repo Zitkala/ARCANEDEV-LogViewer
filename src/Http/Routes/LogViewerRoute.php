@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Http\Routes;
+namespace Zitkala\LogViewer\Http\Routes;
 
-use Arcanedev\LogViewer\Http\Controllers\LogViewerController;
-use Arcanedev\Support\Routing\RouteRegistrar;
+use Zitkala\LogViewer\Http\Controllers\LogViewerController;
+use Zitkala\Support\Routing\RouteRegistrar;
 
 /**
  * Class     LogViewerRoute
@@ -24,12 +24,12 @@ class LogViewerRoute extends RouteRegistrar
      */
     public function map(): void
     {
-        $attributes = (array) config('log-viewer.route.attributes');
+        $attributes = (array) config('log-viewer2.route.attributes');
 
         $this->group($attributes, function() {
-            $this->name('log-viewer::')->group(function () {
+            $this->name('log-viewer2::')->group(function () {
                 $this->get('/', [LogViewerController::class, 'index'])
-                     ->name('dashboard'); // log-viewer::dashboard
+                     ->name('dashboard'); // log-viewer2::dashboard
 
                 $this->mapLogsRoutes();
             });
@@ -43,23 +43,23 @@ class LogViewerRoute extends RouteRegistrar
     {
         $this->prefix('logs')->name('logs.')->group(function() {
             $this->get('/', [LogViewerController::class, 'listLogs'])
-                 ->name('list'); // log-viewer::logs.list
+                 ->name('list'); // log-viewer2::logs.list
 
             $this->delete('delete', [LogViewerController::class, 'delete'])
-                 ->name('delete'); // log-viewer::logs.delete
+                 ->name('delete'); // log-viewer2::logs.delete
 
             $this->prefix('{date}')->group(function() {
                 $this->get('/', [LogViewerController::class, 'show'])
-                     ->name('show'); // log-viewer::logs.show
+                     ->name('show'); // log-viewer2::logs.show
 
                 $this->get('download', [LogViewerController::class, 'download'])
-                     ->name('download'); // log-viewer::logs.download
+                     ->name('download'); // log-viewer2::logs.download
 
                 $this->get('{level}', [LogViewerController::class, 'showByLevel'])
-                     ->name('filter'); // log-viewer::logs.filter
+                     ->name('filter'); // log-viewer2::logs.filter
 
                 $this->get('{level}/search', [LogViewerController::class, 'search'])
-                     ->name('search'); // log-viewer::logs.search
+                     ->name('search'); // log-viewer2::logs.search
             });
         });
     }

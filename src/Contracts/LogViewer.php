@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts;
+namespace Zitkala\LogViewer\Contracts;
 
 /**
  * Interface  LogViewer
@@ -51,7 +51,7 @@ interface LogViewer extends Patternable
     /**
      * Get all logs.
      *
-     * @return \Arcanedev\LogViewer\Entities\LogCollection
+     * @return \Zitkala\LogViewer\Entities\LogCollection
      */
     public function all();
 
@@ -69,7 +69,7 @@ interface LogViewer extends Patternable
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log
+     * @return \Zitkala\LogViewer\Entities\Log
      */
     public function get($date);
 
@@ -79,7 +79,7 @@ interface LogViewer extends Patternable
      * @param  string  $date
      * @param  string  $level
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntryCollection
+     * @return \Zitkala\LogViewer\Entities\LogEntryCollection
      */
     public function entries($date, $level = 'all');
 
@@ -106,7 +106,7 @@ interface LogViewer extends Patternable
      *
      * @param  string|null  $locale
      *
-     * @return \Arcanedev\LogViewer\Tables\StatsTable
+     * @return \Zitkala\LogViewer\Tables\StatsTable
      */
     public function statsTable($locale = null);
 
@@ -117,7 +117,7 @@ interface LogViewer extends Patternable
      *
      * @return bool
      *
-     * @throws \Arcanedev\LogViewer\Exceptions\FilesystemException
+     * @throws \Zitkala\LogViewer\Exceptions\FilesystemException
      */
     public function delete($date);
 

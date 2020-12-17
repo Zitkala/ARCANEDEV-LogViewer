@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Utilities;
+namespace Zitkala\LogViewer\Utilities;
 
-use Arcanedev\LogViewer\Contracts\Utilities\Filesystem as FilesystemContract;
-use Arcanedev\LogViewer\Exceptions\FilesystemException;
-use Arcanedev\LogViewer\Helpers\LogParser;
+use Zitkala\LogViewer\Contracts\Utilities\Filesystem as FilesystemContract;
+use Zitkala\LogViewer\Exceptions\FilesystemException;
+use Zitkala\LogViewer\Helpers\LogParser;
 use Exception;
 use Illuminate\Filesystem\Filesystem as IlluminateFilesystem;
 
@@ -228,7 +228,7 @@ class Filesystem implements FilesystemContract
      *
      * @return string
      *
-     * @throws \Arcanedev\LogViewer\Exceptions\FilesystemException
+     * @throws \Zitkala\LogViewer\Exceptions\FilesystemException
      */
     public function read($date)
     {
@@ -251,7 +251,7 @@ class Filesystem implements FilesystemContract
      *
      * @return bool
      *
-     * @throws \Arcanedev\LogViewer\Exceptions\FilesystemException
+     * @throws \Zitkala\LogViewer\Exceptions\FilesystemException
      */
     public function delete(string $date)
     {
@@ -312,7 +312,7 @@ class Filesystem implements FilesystemContract
      *
      * @return string
      *
-     * @throws \Arcanedev\LogViewer\Exceptions\FilesystemException
+     * @throws \Zitkala\LogViewer\Exceptions\FilesystemException
      */
     private function getLogPath(string $date)
     {

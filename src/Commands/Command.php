@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Commands;
+namespace Zitkala\LogViewer\Commands;
 
-use Arcanedev\LogViewer\Contracts\LogViewer as LogViewerContract;
-use Arcanedev\Support\Console\Command as BaseCommand;
+use Zitkala\LogViewer\Contracts\LogViewer as LogViewerContract;
+use Zitkala\Support\Console\Command as BaseCommand;
 
 /**
  * Class     Command
@@ -19,7 +19,7 @@ abstract class Command extends BaseCommand
      | -----------------------------------------------------------------
      */
 
-    /** @var \Arcanedev\LogViewer\Contracts\LogViewer */
+    /** @var \Zitkala\LogViewer\Contracts\LogViewer */
     protected $logViewer;
 
     /* -----------------------------------------------------------------
@@ -30,7 +30,7 @@ abstract class Command extends BaseCommand
     /**
      * Create the command instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\LogViewer  $logViewer
+     * @param  \Zitkala\LogViewer\Contracts\LogViewer  $logViewer
      */
     public function __construct(LogViewerContract $logViewer)
     {

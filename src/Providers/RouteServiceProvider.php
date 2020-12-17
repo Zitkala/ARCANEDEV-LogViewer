@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Providers;
+namespace Zitkala\LogViewer\Providers;
 
-use Arcanedev\LogViewer\Http\Routes\LogViewerRoute;
-use Arcanedev\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Zitkala\LogViewer\Http\Routes\LogViewerRoute;
+use Zitkala\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 /**
  * Class     RouteServiceProvider
@@ -61,6 +61,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     private function config($key, $default = null)
     {
-        return $this->app['config']->get("log-viewer.route.$key", $default);
+        return $this->app['config']->get("log-viewer2.route.$key", $default);
     }
 }

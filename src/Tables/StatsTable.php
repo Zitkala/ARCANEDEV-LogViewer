@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tables;
+namespace Zitkala\LogViewer\Tables;
 
-use Arcanedev\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
 use Illuminate\Support\{Arr, Collection};
 
 /**
@@ -23,7 +23,7 @@ class StatsTable extends AbstractTable
      * Make a stats table instance.
      *
      * @param  array                                               $data
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels  $levels
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogLevels  $levels
      * @param  string|null                                         $locale
      *
      * @return $this
@@ -111,7 +111,7 @@ class StatsTable extends AbstractTable
 
         foreach (Arr::except($this->footer(), 'all') as $level => $count) {
             $totals->put($level, [
-                'label'     => log_levels()->get($level, $locale),
+                'label'     => log_levels2()->get($level, $locale),
                 'value'     => $count,
                 'color'     => $this->color($level),
                 'highlight' => $this->color($level),

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Utilities;
+namespace Zitkala\LogViewer\Tests\Utilities;
 
-use Arcanedev\LogViewer\Tests\TestCase;
-use Arcanedev\LogViewer\Utilities\LogMenu;
+use Zitkala\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Utilities\LogMenu;
 
 /**
  * Class     LogMenuTest
@@ -19,7 +19,7 @@ class LogMenuTest extends TestCase
      | -----------------------------------------------------------------
      */
 
-    /** @var  \Arcanedev\LogViewer\Utilities\LogMenu */
+    /** @var  \Zitkala\LogViewer\Utilities\LogMenu */
     private $menu;
 
     /* -----------------------------------------------------------------
@@ -31,7 +31,7 @@ class LogMenuTest extends TestCase
     {
         parent::setUp();
 
-        $this->menu = $this->app->make(\Arcanedev\LogViewer\Contracts\Utilities\LogMenu::class);
+        $this->menu = $this->app->make(\Zitkala\LogViewer\Contracts\Utilities\LogMenu::class);
     }
 
     protected function tearDown(): void
@@ -61,59 +61,59 @@ class LogMenuTest extends TestCase
             'all'       => [
                 'name'  => 'All',
                 'count' => 8,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/all',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/all',
                 'icon'  => '<i class="fa fa-fw fa-list"></i>',
             ],
             'emergency' => [
                 'name'  => 'Emergency',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/emergency',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/emergency',
                 'icon'  => '<i class="fa fa-fw fa-bug"></i>',
             ],
             'alert'     => [
                 'name'  => 'Alert',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/alert',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/alert',
                 'icon'  => '<i class="fa fa-fw fa-bullhorn"></i>',
             ],
             'critical'  => [
                 'name'  => 'Critical',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/critical',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/critical',
                 'icon'  => '<i class="fa fa-fw fa-heartbeat"></i>',
             ],
             'error'     => [
                 'name'  => 'Error',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/error',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/error',
                 'icon'  => '<i class="fa fa-fw fa-times-circle"></i>',
             ],
             'warning'   => [
                 'name'  => 'Warning',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/warning',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/warning',
                 'icon'  => '<i class="fa fa-fw fa-exclamation-triangle"></i>',
             ],
             'notice'    => [
                 'name'  => 'Notice',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/notice',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/notice',
                 'icon'  => '<i class="fa fa-fw fa-exclamation-circle"></i>',
             ],
             'info'      => [
                 'name'  => 'Info',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/info',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/info',
                 'icon'  => '<i class="fa fa-fw fa-info-circle"></i>',
             ],
             'debug'     => [
                 'name' => 'Debug',
                 'count' => 1,
-                'url'   => 'http://localhost/log-viewer/logs/2015-01-01/debug',
+                'url'   => 'http://localhost/log-viewer2/logs/2015-01-01/debug',
                 'icon'  => '<i class="fa fa-fw fa-life-ring"></i>',
             ],
         ];
 
-        static::assertSame($expected, $menu = log_menu()->make($log));
+        static::assertSame($expected, $menu = log_menu2()->make($log));
     }
 }

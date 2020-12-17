@@ -1,5 +1,5 @@
 {
-    "name":        "arcanedev/log-viewer",
+    "name":        "zitkala/arcanedev-log-viewer",
     "description": "Provides a Log Viewer for Laravel",
     "keywords":    ["arcanedev", "arcanesoft", "laravel", "log", "log viewer", "log-viewer", "logviewer"],
     "homepage":    "https://github.com/ARCANEDEV/LogViewer",
@@ -9,6 +9,12 @@
             "email":    "arcanedev.maroc@gmail.com",
             "homepage": "https://github.com/arcanedev-maroc",
             "role":     "Developer"
+        },
+        {
+            "name":     "Norman Huth",
+            "email":    "norman@huth.it",
+            "homepage": "https://huth.it",
+            "role":     "Developer"
         }
     ],
     "type":    "library",
@@ -16,8 +22,8 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-json": "*",
-        "arcanedev/support": "^8.0",
-        "psr/log": "^1.1"
+        "psr/log": "^1.1",
+        "zitkala/arcanedev-support": "^8.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.4.2",
@@ -26,13 +32,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Arcanedev\\LogViewer\\": "src/"
+            "Zitkala\\LogViewer\\": "src/"
         },
         "files": ["helpers.php"]
     },
     "autoload-dev": {
         "psr-4": {
-            "Arcanedev\\LogViewer\\Tests\\": "tests/"
+            "Zitkala\\LogViewer\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -45,8 +51,8 @@
         },
         "laravel": {
             "providers": [
-                "Arcanedev\\LogViewer\\LogViewerServiceProvider",
-                "Arcanedev\\LogViewer\\Providers\\DeferredServicesProvider"
+                "Zitkala\\LogViewer\\LogViewerServiceProvider",
+                "Zitkala\\LogViewer\\Providers\\DeferredServicesProvider"
             ]
         }
     },

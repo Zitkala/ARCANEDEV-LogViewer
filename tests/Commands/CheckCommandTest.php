@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests\Commands;
+namespace Zitkala\LogViewer\Tests\Commands;
 
-use Arcanedev\LogViewer\Tests\TestCase;
+use Zitkala\LogViewer\Tests\TestCase;
 
 /**
  * Class     CheckCommandTest
@@ -21,7 +21,7 @@ class CheckCommandTest extends TestCase
     /** @test */
     public function it_can_check(): void
     {
-        $this->artisan('log-viewer:check')
+        $this->artisan('log-viewer2:check')
              ->assertExitCode(0);
     }
 }

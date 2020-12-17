@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tables;
+namespace Zitkala\LogViewer\Tables;
 
-use Arcanedev\LogViewer\Contracts\Table as TableContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
+use Zitkala\LogViewer\Contracts\Table as TableContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
 
 /**
  * Class     AbstractTable
@@ -28,7 +28,7 @@ abstract class AbstractTable implements TableContract
     /** @var array  */
     private $footer  = [];
 
-    /** @var \Arcanedev\LogViewer\Contracts\Utilities\LogLevels */
+    /** @var \Zitkala\LogViewer\Contracts\Utilities\LogLevels */
     protected $levels;
 
     /** @var string|null */
@@ -46,13 +46,13 @@ abstract class AbstractTable implements TableContract
      * Create a table instance.
      *
      * @param  array                                               $data
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels  $levels
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogLevels  $levels
      * @param  string|null                                         $locale
      */
     public function __construct(array $data, LogLevelsContract $levels, $locale = null)
     {
         $this->setLevels($levels);
-        $this->setLocale(is_null($locale) ? config('log-viewer.locale') : $locale);
+        $this->setLocale(is_null($locale) ? config('log-viewer2.locale') : $locale);
         $this->setData($data);
         $this->init();
     }
@@ -65,7 +65,7 @@ abstract class AbstractTable implements TableContract
     /**
      * Set LogLevels instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels  $levels
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogLevels  $levels
      *
      * @return $this
      */
@@ -204,6 +204,6 @@ abstract class AbstractTable implements TableContract
      */
     protected function color($level)
     {
-        return log_styler()->color($level);
+        return log_styler2()->color($level);
     }
 }

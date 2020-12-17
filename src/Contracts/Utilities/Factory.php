@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Contracts\Utilities;
+namespace Zitkala\LogViewer\Contracts\Utilities;
 
-use Arcanedev\LogViewer\Contracts\Patternable;
+use Zitkala\LogViewer\Contracts\Patternable;
 
 /**
  * Interface  Factory
@@ -21,14 +21,14 @@ interface Factory extends Patternable
     /**
      * Get the filesystem instance.
      *
-     * @return \Arcanedev\LogViewer\Contracts\Utilities\Filesystem
+     * @return \Zitkala\LogViewer\Contracts\Utilities\Filesystem
      */
     public function getFilesystem();
 
     /**
      * Set the filesystem instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\Filesystem  $filesystem
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\Filesystem  $filesystem
      *
      * @return self
      */
@@ -37,14 +37,14 @@ interface Factory extends Patternable
     /**
      * Get the log levels instance.
      *
-     * @return  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels  $levels
+     * @return  \Zitkala\LogViewer\Contracts\Utilities\LogLevels  $levels
      */
     public function getLevels();
 
     /**
      * Set the log levels instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels  $levels
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogLevels  $levels
      *
      * @return self
      */
@@ -62,7 +62,7 @@ interface Factory extends Patternable
     /**
      * Get all logs.
      *
-     * @return \Arcanedev\LogViewer\Entities\LogCollection
+     * @return \Zitkala\LogViewer\Entities\LogCollection
      */
     public function logs();
 
@@ -76,7 +76,7 @@ interface Factory extends Patternable
      *
      * @see logs
      *
-     * @return \Arcanedev\LogViewer\Entities\LogCollection
+     * @return \Zitkala\LogViewer\Entities\LogCollection
      */
     public function all();
 
@@ -94,7 +94,7 @@ interface Factory extends Patternable
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log
+     * @return \Zitkala\LogViewer\Entities\Log
      */
     public function log($date);
 
@@ -103,7 +103,7 @@ interface Factory extends Patternable
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log
+     * @return \Zitkala\LogViewer\Entities\Log
      */
     public function get($date);
 
@@ -113,7 +113,7 @@ interface Factory extends Patternable
      * @param  string  $date
      * @param  string  $level
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntryCollection
+     * @return \Zitkala\LogViewer\Entities\LogEntryCollection
      */
     public function entries($date, $level = 'all');
 
@@ -170,7 +170,7 @@ interface Factory extends Patternable
      *
      * @param  string|null  $locale
      *
-     * @return \Arcanedev\LogViewer\Tables\StatsTable
+     * @return \Zitkala\LogViewer\Tables\StatsTable
      */
     public function statsTable($locale = null);
 

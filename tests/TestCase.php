@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Tests;
+namespace Zitkala\LogViewer\Tests;
 
-use Arcanedev\LogViewer\Contracts\Utilities\Filesystem;
-use Arcanedev\LogViewer\Entities\Log;
-use Arcanedev\LogViewer\Entities\LogEntry;
-use Arcanedev\LogViewer\Entities\LogEntryCollection;
-use Arcanedev\LogViewer\Helpers\LogParser;
-use Arcanedev\LogViewer\LogViewerServiceProvider;
-use Arcanedev\LogViewer\Providers\DeferredServicesProvider;
+use Zitkala\LogViewer\Contracts\Utilities\Filesystem;
+use Zitkala\LogViewer\Entities\Log;
+use Zitkala\LogViewer\Entities\LogEntry;
+use Zitkala\LogViewer\Entities\LogEntryCollection;
+use Zitkala\LogViewer\Helpers\LogParser;
+use Zitkala\LogViewer\LogViewerServiceProvider;
+use Zitkala\LogViewer\Providers\DeferredServicesProvider;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Arr;
@@ -86,7 +86,7 @@ abstract class TestCase extends BaseTestCase
         /** @var \Illuminate\Config\Repository $config */
         $config = $app['config'];
 
-        $config->set('log-viewer.storage-path', $app['path.storage'].DIRECTORY_SEPARATOR.'logs');
+        $config->set('log-viewer2.storage-path', $app['path.storage'].DIRECTORY_SEPARATOR.'logs');
     }
 
     /* -----------------------------------------------------------------
@@ -112,7 +112,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Assert Log object.
      *
-     * @param  \Arcanedev\LogViewer\Entities\Log  $log
+     * @param  \Zitkala\LogViewer\Entities\Log  $log
      * @param  string                             $date
      */
     protected static function assertLog(Log $log, $date): void
@@ -125,7 +125,7 @@ abstract class TestCase extends BaseTestCase
      * Assert Log entries object.
      *
      * @param  string                                            $date
-     * @param  \Arcanedev\LogViewer\Entities\LogEntryCollection  $entries
+     * @param  \Zitkala\LogViewer\Entities\LogEntryCollection  $entries
      */
     protected static function assertLogEntries($date, LogEntryCollection $entries): void
     {
@@ -138,7 +138,7 @@ abstract class TestCase extends BaseTestCase
      * Assert log entry object.
      *
      * @param  string                                  $date
-     * @param  \Arcanedev\LogViewer\Entities\LogEntry  $entry
+     * @param  \Zitkala\LogViewer\Entities\LogEntry  $entry
      */
     protected static function assertLogEntry($date, LogEntry $entry): void
     {
@@ -298,7 +298,7 @@ abstract class TestCase extends BaseTestCase
     /**
      * Get Filesystem Utility instance.
      *
-     * @return \Arcanedev\LogViewer\Utilities\Filesystem
+     * @return \Zitkala\LogViewer\Utilities\Filesystem
      */
     protected function filesystem()
     {
@@ -364,7 +364,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log
+     * @return \Zitkala\LogViewer\Entities\Log
      */
     protected function getLog($date)
     {

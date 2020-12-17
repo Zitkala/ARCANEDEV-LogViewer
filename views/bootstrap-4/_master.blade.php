@@ -159,52 +159,52 @@
 
         .badge.badge-level-all,
         .box.level-all {
-            background-color: {{ log_styler()->color('all') }};
+            background-color: {{ log_styler2()->color('all') }};
         }
 
         .badge.badge-level-emergency,
         .box.level-emergency {
-            background-color: {{ log_styler()->color('emergency') }};
+            background-color: {{ log_styler2()->color('emergency') }};
         }
 
         .badge.badge-level-alert,
         .box.level-alert  {
-            background-color: {{ log_styler()->color('alert') }};
+            background-color: {{ log_styler2()->color('alert') }};
         }
 
         .badge.badge-level-critical,
         .box.level-critical {
-            background-color: {{ log_styler()->color('critical') }};
+            background-color: {{ log_styler2()->color('critical') }};
         }
 
         .badge.badge-level-error,
         .box.level-error {
-            background-color: {{ log_styler()->color('error') }};
+            background-color: {{ log_styler2()->color('error') }};
         }
 
         .badge.badge-level-warning,
         .box.level-warning {
-            background-color: {{ log_styler()->color('warning') }};
+            background-color: {{ log_styler2()->color('warning') }};
         }
 
         .badge.badge-level-notice,
         .box.level-notice {
-            background-color: {{ log_styler()->color('notice') }};
+            background-color: {{ log_styler2()->color('notice') }};
         }
 
         .badge.badge-level-info,
         .box.level-info {
-            background-color: {{ log_styler()->color('info') }};
+            background-color: {{ log_styler2()->color('info') }};
         }
 
         .badge.badge-level-debug,
         .box.level-debug {
-            background-color: {{ log_styler()->color('debug') }};
+            background-color: {{ log_styler2()->color('debug') }};
         }
 
         .badge.empty,
         .box.empty {
-            background-color: {{ log_styler()->color('empty') }};
+            background-color: {{ log_styler2()->color('empty') }};
         }
 
         .badge.badge-env {
@@ -218,7 +218,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark p-0">
-        <a href="{{ route('log-viewer::dashboard') }}" class="navbar-brand mr-0">
+        <a href="{{ route('log-viewer2::dashboard') }}" class="navbar-brand mr-0">
             <i class="fa fa-fw fa-book"></i> LogViewer
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -226,13 +226,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item {{ Route::is('log-viewer::dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('log-viewer::dashboard') }}" class="nav-link">
+                <li class="nav-item {{ Route::is('log-viewer2::dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('log-viewer2::dashboard') }}" class="nav-link">
                         <i class="fa fa-dashboard"></i> @lang('Dashboard')
                     </a>
                 </li>
-                <li class="nav-item {{ Route::is('log-viewer::logs.list') ? 'active' : '' }}">
-                    <a href="{{ route('log-viewer::logs.list') }}" class="nav-link">
+                <li class="nav-item {{ Route::is('log-viewer2::logs.list') ? 'active' : '' }}">
+                    <a href="{{ route('log-viewer2::logs.list') }}" class="nav-link">
                         <i class="fa fa-archive"></i> @lang('Logs')
                     </a>
                 </li>
@@ -250,7 +250,7 @@
     <footer class="main-footer">
         <div class="container-fluid">
             <p class="text-muted pull-left">
-                LogViewer - <span class="badge badge-info">version {{ log_viewer()->version() }}</span>
+                LogViewer - <span class="badge badge-info">version {{ log_viewer2()->version() }}</span>
             </p>
             <p class="text-muted pull-right">
                 Created with <i class="fa fa-heart"></i> by ARCANEDEV <sup>&copy;</sup>

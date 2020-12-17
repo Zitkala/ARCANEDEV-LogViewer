@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Arcanedev\LogViewer\Utilities;
+namespace Zitkala\LogViewer\Utilities;
 
-use Arcanedev\LogViewer\Contracts\Utilities\Factory as FactoryContract;
-use Arcanedev\LogViewer\Contracts\Utilities\Filesystem as FilesystemContract;
-use Arcanedev\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
-use Arcanedev\LogViewer\Entities\LogCollection;
-use Arcanedev\LogViewer\Tables\StatsTable;
+use Zitkala\LogViewer\Contracts\Utilities\Factory as FactoryContract;
+use Zitkala\LogViewer\Contracts\Utilities\Filesystem as FilesystemContract;
+use Zitkala\LogViewer\Contracts\Utilities\LogLevels as LogLevelsContract;
+use Zitkala\LogViewer\Entities\LogCollection;
+use Zitkala\LogViewer\Tables\StatsTable;
 
 /**
  * Class     Factory
@@ -25,14 +25,14 @@ class Factory implements FactoryContract
     /**
      * The filesystem instance.
      *
-     * @var \Arcanedev\LogViewer\Contracts\Utilities\Filesystem
+     * @var \Zitkala\LogViewer\Contracts\Utilities\Filesystem
      */
     protected $filesystem;
 
     /**
      * The log levels instance.
      *
-     * @var \Arcanedev\LogViewer\Contracts\Utilities\LogLevels
+     * @var \Zitkala\LogViewer\Contracts\Utilities\LogLevels
      */
     private $levels;
 
@@ -44,8 +44,8 @@ class Factory implements FactoryContract
     /**
      * Create a new instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\Filesystem  $filesystem
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels   $levels
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\Filesystem  $filesystem
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogLevels   $levels
      */
     public function __construct(FilesystemContract $filesystem, LogLevelsContract $levels) {
         $this->setFilesystem($filesystem);
@@ -60,7 +60,7 @@ class Factory implements FactoryContract
     /**
      * Get the filesystem instance.
      *
-     * @return \Arcanedev\LogViewer\Contracts\Utilities\Filesystem
+     * @return \Zitkala\LogViewer\Contracts\Utilities\Filesystem
      */
     public function getFilesystem()
     {
@@ -70,7 +70,7 @@ class Factory implements FactoryContract
     /**
      * Set the filesystem instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\Filesystem  $filesystem
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\Filesystem  $filesystem
      *
      * @return self
      */
@@ -84,7 +84,7 @@ class Factory implements FactoryContract
     /**
      * Get the log levels instance.
      *
-     * @return \Arcanedev\LogViewer\Contracts\Utilities\LogLevels
+     * @return \Zitkala\LogViewer\Contracts\Utilities\LogLevels
      */
     public function getLevels()
     {
@@ -94,7 +94,7 @@ class Factory implements FactoryContract
     /**
      * Set the log levels instance.
      *
-     * @param  \Arcanedev\LogViewer\Contracts\Utilities\LogLevels  $levels
+     * @param  \Zitkala\LogViewer\Contracts\Utilities\LogLevels  $levels
      *
      * @return self
      */
@@ -151,7 +151,7 @@ class Factory implements FactoryContract
     /**
      * Get all logs.
      *
-     * @return \Arcanedev\LogViewer\Entities\LogCollection
+     * @return \Zitkala\LogViewer\Entities\LogCollection
      */
     public function logs()
     {
@@ -168,7 +168,7 @@ class Factory implements FactoryContract
      *
      * @see logs
      *
-     * @return \Arcanedev\LogViewer\Entities\LogCollection
+     * @return \Zitkala\LogViewer\Entities\LogCollection
      */
     public function all()
     {
@@ -192,7 +192,7 @@ class Factory implements FactoryContract
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log
+     * @return \Zitkala\LogViewer\Entities\Log
      */
     public function log($date)
     {
@@ -204,7 +204,7 @@ class Factory implements FactoryContract
      *
      * @param  string  $date
      *
-     * @return \Arcanedev\LogViewer\Entities\Log
+     * @return \Zitkala\LogViewer\Entities\Log
      */
     public function get($date)
     {
@@ -217,7 +217,7 @@ class Factory implements FactoryContract
      * @param  string  $date
      * @param  string  $level
      *
-     * @return \Arcanedev\LogViewer\Entities\LogEntryCollection
+     * @return \Zitkala\LogViewer\Entities\LogEntryCollection
      */
     public function entries($date, $level = 'all')
     {
@@ -239,7 +239,7 @@ class Factory implements FactoryContract
      *
      * @param  string|null  $locale
      *
-     * @return \Arcanedev\LogViewer\Tables\StatsTable
+     * @return \Zitkala\LogViewer\Tables\StatsTable
      */
     public function statsTable($locale = null)
     {

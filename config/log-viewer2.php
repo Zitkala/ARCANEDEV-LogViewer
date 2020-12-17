@@ -1,80 +1,37 @@
-# 2. Configuration
-
-## Table of contents
-
-  1. [Installation and Setup](1.Installation-and-Setup.md)
-  2. [Configuration](2.Configuration.md)
-  3. [Usage](3.Usage.md)
-  4. [FAQ](4.FAQ.md)
-
-## Storage path
-
-```php
-<?php
-
-return [
-    /* ------------------------------------------------------------------------------------------------
-     |  Log files storage path
-     | ------------------------------------------------------------------------------------------------
-     */
-    'storage-path'  => storage_path('logs'),
-
-    // ...
-];
-```
-
-## Log files pattern
-
-```php
 <?php
 
 use Zitkala\LogViewer\Contracts\Utilities\Filesystem;
 
 return [
-    // ...
 
-    /* ------------------------------------------------------------------------------------------------
-     |  Log files pattern
-     | ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
+     |  Log files storage path
+     | -----------------------------------------------------------------
      */
+
+    'storage-path'  => storage_path('logs'),
+
+    /* -----------------------------------------------------------------
+     |  Log files pattern
+     | -----------------------------------------------------------------
+     */
+
     'pattern'       => [
         'prefix'    => Filesystem::PATTERN_PREFIX,    // 'chatbot-'
         'date'      => Filesystem::PATTERN_DATE,      // '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
         'extension' => Filesystem::PATTERN_EXTENSION, // '.log'
     ],
 
-    // ...
-];
-```
-
-## Localization
-
-```php
-<?php
-
-return [
-    // ...
-
-    /* ------------------------------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Locale
-     | ------------------------------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      |  Supported locales :
      |    'auto', 'ar', 'bg', 'de', 'en', 'es', 'et', 'fa', 'fr', 'hu', 'hy', 'id', 'it', 'ja', 'ko', 'nl',
      |    'pl', 'pt-BR', 'ro', 'ru', 'sv', 'th', 'tr', 'zh-TW', 'zh'
      */
+
     'locale'        => 'auto',
 
-    // ...
-];
-```
-
-## Theme
-```php
-<?php
-
-return [
-    // ...
-    
     /* -----------------------------------------------------------------
      |  Theme
      | -----------------------------------------------------------------
@@ -82,21 +39,9 @@ return [
      |    'bootstrap-3', 'bootstrap-4'
      |  Make your own theme by adding a folder to the views directory and specifying it here.
      */
-    
+
     'theme'         => 'bootstrap-4',
-    
-    // ...
-];
-```
 
-## Route
-
-```php
-<?php
-
-return [
-    // ...
-    
     /* -----------------------------------------------------------------
      |  Route settings
      | -----------------------------------------------------------------
@@ -106,38 +51,12 @@ return [
         'enabled'    => true,
 
         'attributes' => [
-            'prefix'     => 'log-viewer',
+            'prefix'     => 'log-viewer2',
 
             'middleware' => env('ARCANEDEV_LOGVIEWER_MIDDLEWARE') ? explode(',', env('ARCANEDEV_LOGVIEWER_MIDDLEWARE')) : null,
         ],
     ],
-    
-    // ...
-];
-```
 
-By default no middleware is added to `log-viewer` route. If you need middlewares you just have to add a `ARCANEDEV_LOGVIEWER_MIDDLEWARE` key to your `.env` file and add middlewares as comma separated values (no space).
-
- * **Example 1:** single middleware
-
-```
-ARCANEDEV_LOGVIEWER_MIDDLEWARE=web
-```
-
- * **Example 2:** multiple middlewares
- 
-```
-ARCANEDEV_LOGVIEWER_MIDDLEWARE=web,auth,custom-middleware
-```
-
-## Pagination
-
-```php
-<?php
-
-return [
-    // ...
-    
     /* -----------------------------------------------------------------
      |  Log entries per page
      | -----------------------------------------------------------------
@@ -145,68 +64,34 @@ return [
      */
 
     'per-page'      => 30,
-    
-    // ...
-];
-```
 
-## Download
-
-```php
-<?php
-
-return [
-    // ...
-
-    /* -------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Download settings
-     | -------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     'download'      => [
         'prefix'    => 'chatbot-',
 
         'extension' => 'log',
     ],
 
-    // ...
-];
-```
-
-## Menu
-
-```php
-<?php
-
-return [
-    // ...
-
-    /* -------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Menu settings
-     | -------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
+
     'menu'  => [
-        'filter-route'  => 'log-viewer::logs.filter',
+        'filter-route'  => 'log-viewer2::logs.filter',
 
         'icons-enabled' => true,
     ],
 
-    // ...
-];
-```
-
-## Icons
-
-```php
-<?php
-
-return [
-    // ...
-
-    /* -------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Icons
-     | -------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
-    
+
     'icons' =>  [
         /**
          * Font awesome >= 4.3
@@ -223,23 +108,11 @@ return [
         'debug'     => 'fa fa-fw fa-life-ring',            // http://fontawesome.io/icon/life-ring/
     ],
 
-    // ...
-];
-```
-
-## Colors
-
-```php
-<?php
-
-return [
-    // ...
-
-    /* -------------------------------------------------------------------------
+    /* -----------------------------------------------------------------
      |  Colors
-     | -------------------------------------------------------------------------
+     | -----------------------------------------------------------------
      */
-    
+
     'colors' =>  [
         'levels'    => [
             'empty'     => '#D1D1D1',
@@ -254,16 +127,6 @@ return [
             'debug'     => '#90CAF9',
         ],
     ],
-];
-```
-
-## Stack trace
-
-```php
-<?php
-
-return [
-    // ...
 
     /* -----------------------------------------------------------------
      |  Strings to highlight in stack trace
@@ -274,5 +137,5 @@ return [
         '^#\d+',
         '^Stack trace:',
     ],
+
 ];
-```
